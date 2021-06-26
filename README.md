@@ -42,3 +42,40 @@ int main() {
     return 0;
 }
 
+                              Repeating Numbers in ARRAY, which is the earliest.
+   
+   #include <iostream>
+#include<climits>
+
+using namespace std;
+
+int main() {
+    int n; std::cin >> n;
+    int a[n];
+    for(int i = 0; i<n; i++){
+        cin>>a[i];
+    }
+    const int N = 1e6+2;
+    int ind[N];
+    for(int i = 0; i<n; i++){
+        ind[i]= -1;
+    }
+    int mini = INT_MAX;
+    
+    for(int i = 0; i<n; i++){
+        if(ind[a[i]] != -1){
+            mini = min(mini, ind[a[i]]);
+        }
+        else{
+            ind[a[i]] = i;
+        }
+    }
+    if(mini == INT_MAX){
+        std::cout << "-1" << std::endl;
+    }
+    else{
+        cout<< mini+1<<endl;
+    }
+	// your code goes here
+	return 0;
+}
